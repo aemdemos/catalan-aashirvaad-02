@@ -1,108 +1,120 @@
+/* Carousel Container */
 .carousel-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  background-color: #e6ded6;
-  padding: 20px 0;
+  background-color: #f0dfd5;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Carousel Wrapper */
 .carousel-wrapper {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.carousel-slides-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  max-width: 90%;
   overflow: hidden;
 }
 
-.carousel-slides {
-  display: flex;
-  scroll-behavior: smooth;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  transform: translateX(0);
+/* Carousel Slides Container */
+.carousel-slides-container {
+  position: relative;
 }
 
+/* Carousel Slides */
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Carousel Slide */
 .carousel-slide {
   min-width: 100%;
   box-sizing: border-box;
-  position: relative;
 }
 
+/* Carousel Slide Image */
 .carousel-slide-image {
-  background-size: cover;
-  background-position: center;
-  height: 500px;
+  position: relative;
+  width: 100%;
 }
 
+.carousel-slide-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Carousel Slide Content */
 .carousel-slide-content {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 20px;
+  transform: translateY(-50%);
   color: white;
-  text-align: left;
-  z-index: 1;
+  text-align: right;
 }
 
 .carousel-slide-content h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .carousel-slide-content p {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
-.carousel-slide-content .button-container {
-  margin-top: 1rem;
+.carousel-slide-content .button-container .button {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
+/* Navigation Buttons */
 .carousel-navigation-buttons {
   position: absolute;
   top: 50%;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 1;
+  transform: translateY(-50%);
 }
 
 .slide-prev, .slide-next {
-  background: #e6a6a6;
+  background-color: #e76c6c;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s;
-}
-
-.slide-prev:hover, .slide-next:hover {
-  background: #e65a5a;
-}
-
-.carousel-slide-indicators {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
-  list-style: none;
+  align-items: center;
+}
+
+.slide-prev {
+  margin-left: 10px;
+}
+
+.slide-next {
+  margin-right: 10px;
+}
+
+/* Carousel Slide Indicators */
+.carousel-slide-indicators {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 20px 0 0 0;
 }
 
 .carousel-slide-indicator {
@@ -110,19 +122,34 @@
 }
 
 .carousel-slide-indicator button {
-  background: #e6a6a6;
+  background-color: #e76c6c;
   border: none;
   width: 15px;
   height: 15px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.carousel-slide-indicator button:disabled {
-  background: #e65a5a;
+.carousel-slide-indicator button[disabled] {
+  background-color: #ff0000;
 }
 
-.carousel-slide-indicator button:hover:not(:disabled) {
-  background: #e65a5a;
+.carousel-slide-indicator button span {
+  display: none;
+}
+
+/* Scroll Behavior */
+.carousel-slides[data-active-slide="0"] {
+  transform: translateX(0);
+}
+
+.carousel-slides[data-active-slide="1"] {
+  transform: translateX(-100%);
+}
+
+.carousel-slides[data-active-slide="2"] {
+  transform: translateX(-200%);
 }
