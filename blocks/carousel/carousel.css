@@ -1,115 +1,96 @@
 .carousel-container {
-  position: relative;
-  overflow: hidden;
-  background-color: #e6ddd6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5d8ce;
+  padding: 20px;
 }
 
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel {
-  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .carousel-slides-container {
-  display: flex;
-  overflow: hidden;
-  scroll-behavior: smooth;
   position: relative;
-}
-
-.carousel-slides {
   display: flex;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  transition: transform 0.5s ease;
-  will-change: transform;
-}
-
-.carousel-slide {
-  display: flex;
-  flex: 0 0 100%;
-  justify-content: space-between;
   align-items: center;
-  transition: opacity 0.5s ease;
 }
 
-.carousel-slide-image {
-  width: 60%;
-}
-
-.carousel-slide-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.carousel-slide-content {
-  width: 35%;
-  padding-left: 20px;
-}
-
-.carousel-slide-content h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0 0 10px 0;
-}
-
-.carousel-slide-content p {
-  font-size: 16px;
-  margin: 0 0 10px 0;
-}
-
-.button-container {
-  margin-top: 10px;
-}
-
-.button {
-  background-color: #fc0d1b;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.carousel-navigation-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-}
-
-.slide-prev, .slide-next {
-  background-color: #db7264;
+.carousel-navigation-buttons button {
+  background-color: #dba5a5;
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  cursor: pointer;
-  outline: none;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
-.slide-prev::before, .slide-next::before {
-  content: '\2190';
-  font-size: 20px;
+.carousel-navigation-buttons .slide-prev {
+  left: 10px;
+}
+
+.carousel-navigation-buttons .slide-next {
+  right: 10px;
+}
+
+.carousel-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  transition: transform 0.5s ease;
+  overflow-x: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-slide-image img {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+
+.carousel-slide-content {
+  padding: 20px;
+  background-color: white;
+  border-radius: 0 0 12px 12px;
+}
+
+.carousel-slide-content h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.carousel-slide-content p {
+  margin: 10px 0;
+}
+
+.button-container {
+  text-align: right;
+}
+
+.button-container .button {
+  background-color: #eb2626;
   color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.slide-next::before {
-  content: '\2192';
-}
 
 .carousel-slide-indicators {
   display: flex;
@@ -123,15 +104,14 @@
 }
 
 .carousel-slide-indicator button {
-  background-color: #fc0d1b;
+  background-color: #f4bebe;
   border: none;
   border-radius: 50%;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   cursor: pointer;
-  outline: none;
 }
 
 .carousel-slide-indicator button[disabled] {
-  background-color: #db7264;
+  background-color: #d70808;
 }
