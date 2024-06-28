@@ -1,117 +1,124 @@
 .carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e5d8ce;
-  padding: 20px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: #e3d9cf;
 }
 
 .carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
-  overflow: hidden;
-  border-radius: 12px;
+  width: 80%;
 }
 
 .carousel-slides-container {
   position: relative;
-  display: flex;
-  align-items: center;
+  overflow: hidden;
 }
 
-.carousel-navigation-buttons button {
-  background-color: #dba5a5;
+.carousel-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.slide-prev,
+.slide-next {
+  background-color: rgba(255, 0, 0, 0.5);
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
 }
 
-.carousel-navigation-buttons .slide-prev {
+.slide-prev {
   left: 10px;
 }
 
-.carousel-navigation-buttons .slide-next {
+.slide-next {
   right: 10px;
 }
 
 .carousel-slides {
   display: flex;
-  scroll-behavior: smooth;
-  transition: transform 0.5s ease;
-  overflow-x: auto;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
   min-width: 100%;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e3d9cf;
+  overflow: hidden;
+  position: relative;
 }
 
-.carousel-slide-image img {
+.carousel-slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  border-radius: 12px 12px 0 0;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .carousel-slide-content {
+  position: relative;
+  z-index: 1;
   padding: 20px;
-  background-color: white;
-  border-radius: 0 0 12px 12px;
+  color: #fff;
 }
 
 .carousel-slide-content h2 {
-  margin: 0 0 10px;
-  font-size: 24px;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .carousel-slide-content p {
-  margin: 10px 0;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-.button-container {
-  text-align: right;
-}
-
-.button-container .button {
-  background-color: #eb2626;
-  color: white;
+.carousel-slide-content .button-container a.button {
+  background-color: #ff0000;
+  color: #fff;
   padding: 10px 20px;
-  border-radius: 12px;
+  border-radius: 5px;
   text-decoration: none;
-  font-weight: bold;
 }
-
 
 .carousel-slide-indicators {
   display: flex;
   justify-content: center;
-  padding: 10px 0;
-  list-style: none;
-}
-
-.carousel-slide-indicator {
-  margin: 0 5px;
+  margin-top: 20px;
 }
 
 .carousel-slide-indicator button {
-  background-color: #f4bebe;
+  background-color: #ff0000;
   border: none;
-  border-radius: 50%;
   width: 10px;
   height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
 .carousel-slide-indicator button[disabled] {
-  background-color: #d70808;
+  background-color: #ff8888;
 }
